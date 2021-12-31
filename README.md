@@ -1,9 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# WebCam in React JS
 
 ## App.js
 
@@ -93,13 +88,22 @@ Hit to open App.js file  [Here](https://github.com/mbganesh/WebCamInReact/blob/m
         
 ```
 
+## Switch Camera
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ const [facingMode, setFacingMode] = useState("user");
+  const switchCam = () => {
+    const newFcMode = facingMode === "user" ? { exact: "environment" } : "user";
+    setFacingMode(newFcMode);
+  };
+  
+<!--  Return  -->
+  
+   <div>
+      <Webcam videoConstraints={{ facingMode: facingMode }} />
+      <IconButton  onClick={() => switchCam()}> <CamIcon /> </IconButton>
+    </div>
+    
+    
